@@ -1,0 +1,41 @@
+$ git branch GitNewBranch
+
+$ git branch -a
+  GitNewBranch
+* master
+
+$ git checkout GitNewBranch
+Switched to branch 'GitNewBranch'
+
+$ echo "Some new content" > newfile.txt
+$ git add newfile.txt
+$ git commit -m "Added new content to branch"
+[GitNewBranch b2c3d4e] Added new content to branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 newfile.txt
+
+$ git checkout master
+Switched to branch 'master'
+
+$ git diff GitNewBranch
+diff --git a/newfile.txt b/newfile.txt
+deleted file mode 100644
+index e69de29..0000000
+--- a/newfile.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-Some new content
+
+$ git merge GitNewBranch
+Updating a1b2c3d..b2c3d4e
+Fast-forward
+ newfile.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 newfile.txt
+
+$ git log --oneline --graph --decorate
+* b2c3d4e (HEAD -> master, GitNewBranch) Added new content to branch
+* a1b2c3d Initial commit
+
+$ git branch -d GitNewBranch
+Deleted branch GitNewBranch (was b2c3d4e).

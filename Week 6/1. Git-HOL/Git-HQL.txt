@@ -1,0 +1,65 @@
+$ git version
+git version 2.21.0.windows.1
+
+$ git config --global user.name "ARUNAGIRINATHAN-K"
+$ git config --global user.email "email"
+
+$ git config --global --list
+user.name=username
+user.email=username@cognizant.com
+
+$ notepad++
+bash: notepad++: command not found
+
+$ notepad++.exe bash -profile
+
+$ git config --global core.editor "notepad++.exe -multiInst -nosession"
+
+$ git config --global -e
+hint: Waiting for your editor to close the file...
+
+$ git init GitDemo
+Initialized empty Git repository in D:/Development_Avecto/GitDemo/.git/
+
+$ cd GitDemo
+
+$ ls -al
+total 8
+drwxr-xr-x 1 1049089 0 Jan 13 11:54 ./
+drwxr-xr-x 1 1049089 0 Jan 13 11:54 ../
+drwxr-xr-x 1 1049089 0 Jan 13 11:54 .git/
+
+$ echo "Welcome to the version control" >> welcome.txt
+
+$ ls -al
+total 9
+drwxr-xr-x 1 494096 1049089  0 Jan 13 12:02 ./
+drwxr-xr-x 1 494096 1049089  0 Jan 13 11:54 ../
+drwxr-xr-x 1 494096 1049089  0 Jan 13 12:01 .git/
+-rw-r--r-- 1 494096 1049089 31 Jan 13 12:02 welcome.txt
+
+$ cat welcome.txt
+Welcome to the version control
+
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        welcome.txt
+
+$ git add welcome.txt
+warning: LF will be replaced by CRLF in welcome.txt.
+The file will have its original line endings in your working directory
+
+$ git commit
+[master (root-commit) a1b2c3d] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 welcome.txt
+
+$ git status
+On branch master
+nothing to commit, working tree clean

@@ -1,0 +1,75 @@
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+$ git checkout -b GitWork
+Switched to a new branch 'GitWork'
+
+$ echo "<hello>From Branch</hello>" > hello.xml
+$ git add hello.xml
+$ git commit -m "Add hello.xml from GitWork branch"
+[GitWork c3d4e5f] Add hello.xml from GitWork branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.xml
+
+$ git checkout master
+Switched to branch 'master'
+
+$ echo "<hello>From Master</hello>" > hello.xml
+$ git add hello.xml
+$ git commit -m "Add hello.xml from Master trunk"
+[master d4e5f6g] Add hello.xml from Master trunk
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.xml
+
+$ git log --oneline --graph --decorate --all
+* d4e5f6g (HEAD -> master) Add hello.xml from Master trunk
+| * c3d4e5f (GitWork) Add hello.xml from GitWork branch
+|/
+* b2c3d4e Added new content to branch
+* a1b2c3d Initial commit
+
+$ git merge GitWork
+Auto-merging hello.xml
+CONFLICT (add/add): Merge conflict in hello.xml
+Automatic merge failed; fix conflicts and then commit the result.
+
+$ git mergetool
+Merging:
+hello.xml
+
+Normal merge conflict for 'hello.xml':
+  {local}: created file
+  {remote}: created file
+
+$ git commit -m "Resolved merge conflict in hello.xml"
+[master e5f6g7h] Resolved merge conflict in hello.xml
+
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hello.xml.orig
+
+$ echo "*.orig" >> .gitignore
+$ git add .gitignore
+$ git commit -m "Ignore mergetool backup files"
+[master f6g7h8i] Ignore mergetool backup files
+ 1 file changed, 1 insertion(+)
+
+$ git branch
+  GitWork
+* master
+
+$ git branch -d GitWork
+Deleted branch GitWork (was c3d4e5f).
+
+$ git log --oneline --graph --decorate
+* f6g7h8i (HEAD -> master) Ignore mergetool backup files
+*   e5f6g7h Resolved merge conflict in hello.xml
+|\
+| * c3d4e5f Add hello.xml from GitWork branch
+* | d4e5f6g Add hello.xml from Master trunk
+|/
+* b2c3d4e Added new content to branch
+* a1b2c3d Initial commit
