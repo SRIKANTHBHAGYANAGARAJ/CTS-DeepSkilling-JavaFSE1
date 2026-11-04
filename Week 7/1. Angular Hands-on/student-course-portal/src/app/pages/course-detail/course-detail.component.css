@@ -1,0 +1,30 @@
+.course-detail-container {
+  padding: 1rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.detail-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.detail-card h2 {
+  margin-top: 0;
+  color: #1e293b;
+}
+
+.not-found-box {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 1.5rem;
+  border-radius: 8px;
+}

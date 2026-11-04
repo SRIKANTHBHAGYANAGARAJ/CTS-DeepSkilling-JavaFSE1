@@ -1,0 +1,31 @@
+.profile-container {
+  padding: 1rem;
+}
+
+.profile-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  margin-bottom: 1.5rem;
+}
+
+.enrolled-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.enrolled-list ul {
+  padding-left: 1.2rem;
+}
+
+.enrolled-list li {
+  margin-bottom: 0.5rem;
+}
+
+.no-data {
+  color: #64748b;
+  font-style: italic;
+}

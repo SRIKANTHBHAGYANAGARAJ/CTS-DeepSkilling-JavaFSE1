@@ -1,0 +1,52 @@
+<div class="home-container">
+  <!-- Hands-On 2 Task 1 Step 11: String interpolation -->
+  <h1>Welcome to {{ portalName }}</h1>
+  <p class="description">
+    Your centralized portal for browsing academic courses, managing enrollments, and viewing academic progress.
+  </p>
+
+  <!-- Hands-On 1 Step 8 & Hands-On 6 Step 61: Stats row -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <h3>{{ liveCourseCount }}</h3>
+      <p>Courses Available</p>
+    </div>
+    <div class="stat-card">
+      <h3>{{ enrolledCount }}</h3>
+      <p>Enrolled</p>
+    </div>
+    <div class="stat-card">
+      <h3>{{ gpa }}</h3>
+      <p>GPA</p>
+    </div>
+  </div>
+
+  <div class="interactive-section">
+    <h3>Data Binding Operations</h3>
+
+    <!-- Hands-On 2 Task 1 Step 12 & 13: Property binding and Event binding -->
+    <div class="binding-item">
+      <button class="btn-primary" [disabled]="!isPortalActive" (click)="onEnrollClick()">
+        Enroll Now
+      </button>
+      <span *ngIf="message" class="message-badge">{{ message }}</span>
+    </div>
+
+    <!-- Hands-On 2 Task 1 Step 14: Two-way binding using [(ngModel)] -->
+    <div class="binding-item">
+      <label for="search">Course Quick Search: </label>
+      <input id="search" type="text" [(ngModel)]="searchTerm" placeholder="Type course keyword..." class="input-field" />
+      <p class="live-search">Searching for: <strong>{{ searchTerm }}</strong></p>
+    </div>
+  </div>
+
+  <!-- Hands-On 2 Task 1 Step 15: Code comment explanation -->
+  <!--
+    Difference between [property] and [(ngModel)]:
+    - [property] (One-Way Binding, Component -> DOM): Pass data strictly from the component class down to the DOM element property (e.g. [disabled]='!isPortalActive').
+    - [(ngModel)] (Two-Way Binding, DOM <-> Component): Shorthand combining property binding [ngModel]='prop' and event binding (ngModelChange)='prop=$event', synchronizing changes bidirectionally between input DOM element and component property in real time.
+  -->
+
+  <app-course-summary-widget></app-course-summary-widget>
+  <app-notification></app-notification>
+</div>

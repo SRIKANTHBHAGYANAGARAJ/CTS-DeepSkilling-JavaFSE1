@@ -1,0 +1,45 @@
+.course-list-page {
+  padding: 1rem;
+}
+
+.search-bar {
+  margin-bottom: 1.5rem;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.loading-state,
+.no-courses {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card-wrapper {
+  cursor: pointer;
+}
+
+.selected-id-box {
+  margin-top: 1.5rem;
+  padding: 12px;
+  background-color: #dbeafe;
+  border: 1px solid #93c5fd;
+  border-radius: 6px;
+  color: #1e40af;
+}

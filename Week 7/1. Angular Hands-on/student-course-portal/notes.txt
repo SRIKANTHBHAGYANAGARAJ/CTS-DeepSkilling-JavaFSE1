@@ -1,0 +1,34 @@
+================================================================================
+Student Course Portal - Angular Configuration & File Explanations (Hands-On 1)
+================================================================================
+
+1. angular.json:
+   Configures the Angular CLI workspace, build targets, assets, stylesheets, scripts, and build configurations like production optimization and budget thresholds.
+
+2. tsconfig.json:
+   Root TypeScript configuration file specifying global compiler options, module resolution strategies, target JavaScript version, and strict type checking rules.
+
+3. tsconfig.app.json:
+   App-specific TypeScript compiler configuration extending tsconfig.json, specifying files to include during application compilation and excluding test specs.
+
+4. package.json:
+   Defines project metadata, dependencies (@angular/core, rxjs, @ngrx/store, etc.), devDependencies, and CLI scripts for running, building, testing, and starting mock servers.
+
+5. src/main.ts:
+   Application entry point file that bootstraps the Angular application by invoking bootstrapApplication() with the root component (AppComponent) and application configuration (appConfig).
+
+6. src/app/app.config.ts (or app.module.ts):
+   Provides application-wide configuration for standalone Angular apps, defining providers for router, HTTP client, interceptors, NgRx store, effects, and animation features.
+
+7. src/app/app.component.ts:
+   Root component definition file containing the main component metadata (@Component), selector ('app-root'), template reference, and top-level logic.
+
+8. src/index.html:
+   Main HTML page template served by the application containing web page head tags, meta descriptors, CSS links, and the root element host tag (<app-root>).
+
+--------------------------------------------------------------------------------
+Budgets Configuration in angular.json:
+Located under: architect > build > configurations > production > budgets
+- maximumWarning (e.g., 500kB): Triggers a build warning when initial bundle size exceeds this threshold.
+- maximumError (e.g., 1MB): Fails the build process if total bundle size exceeds this limit, protecting production performance from bloat.
+================================================================================

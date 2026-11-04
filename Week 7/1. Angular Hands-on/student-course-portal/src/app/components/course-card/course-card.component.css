@@ -1,0 +1,65 @@
+.course-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, height 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.course-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.card--enrolled {
+  background-color: #f0fdf4;
+}
+
+.card--full {
+  border-right: 4px solid #3b82f6;
+}
+
+.expanded {
+  min-height: 220px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #1e293b;
+}
+
+.course-code {
+  background-color: #e2e8f0;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.credits-info {
+  margin: 0.5rem 0;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.expanded-details {
+  font-size: 0.85rem;
+  color: #475569;
+  margin-top: 0.5rem;
+}

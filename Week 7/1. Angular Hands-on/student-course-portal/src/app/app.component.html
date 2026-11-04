@@ -1,0 +1,16 @@
+<app-header></app-header>
+
+<!-- Hands-On 8 Task 3: Global loading spinner bound to loadingService.isLoading$ using async pipe -->
+<div *ngIf="loadingService.isLoading$ | async" class="loading-overlay">
+  <div class="spinner"></div>
+  <span>Loading API data...</span>
+</div>
+
+<!-- Hands-On 8 Task 3: Global error notification banner -->
+<div *ngIf="notificationService.notification$ | async as note" class="notification-banner">
+  {{ note }}
+</div>
+
+<main class="main-content container">
+  <router-outlet></router-outlet>
+</main>

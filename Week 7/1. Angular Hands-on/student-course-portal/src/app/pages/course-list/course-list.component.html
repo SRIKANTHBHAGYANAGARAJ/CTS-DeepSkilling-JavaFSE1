@@ -1,0 +1,48 @@
+<div class="course-list-page">
+  <h2>Available Courses</h2>
+
+  <!-- Hands-On 7 Step 71: Search box updating URL query params -->
+  <div class="search-bar">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="onSearchChange()"
+      placeholder="Filter courses by name or code..."
+      class="search-input"
+    />
+  </div>
+
+  <!-- Hands-On 3 Task 1 Step 25: *ngIf loading state indicator -->
+  <div *ngIf="isLoading" class="loading-state">
+    <p>Loading courses...</p>
+  </div>
+
+  <!-- Hands-On 3 Task 1 Step 25 & 28: *ngIf grid vs else #noCourses template -->
+  <div *ngIf="!isLoading">
+    <div *ngIf="(courses$ | async) as courses">
+      <div *ngIf="courses.length > 0; else noCourses" class="course-grid">
+        <!-- Hands-On 3 Task 1 Step 26: *ngFor with index and trackBy -->
+        <div *ngFor="let c of courses; let i = index; trackBy: trackByCourseId" class="card-wrapper">
+          <app-course-card
+            [course]="c"
+            [appHighlightColor]="'#fef08a'"
+            (enrollRequested)="onEnroll($event)"
+            (click)="viewCourseDetails(c.id)"
+          ></app-course-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hands-On 3 Task 1 Step 28: ng-template for empty course array -->
+  <ng-template #noCourses>
+    <div class="no-courses">
+      <p>No courses available.</p>
+    </div>
+  </ng-template>
+
+  <!-- Hands-On 2 Task 3 Step 24: Displaying selected course ID -->
+  <div *ngIf="selectedCourseId" class="selected-id-box">
+    <p>Selected course ID: <strong>{{ selectedCourseId }}</strong></p>
+  </div>
+</div>

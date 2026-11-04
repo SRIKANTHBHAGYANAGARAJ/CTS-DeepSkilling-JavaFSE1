@@ -1,0 +1,116 @@
+<div class="form-container">
+  <h2>Reactive Student Enrollment Form</h2>
+
+  <div *ngIf="submitted" class="success-banner">
+    Reactive Enrollment Request Submitted Successfully!
+  </div>
+
+  <!-- Hands-On 5 Task 1 Step 50: [formGroup]='enrollForm' binding -->
+  <form [formGroup]="enrollForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <!-- Student Name -->
+    <div class="form-group">
+      <label for="studentName">Student Name *</label>
+      <input
+        type="text"
+        id="studentName"
+        formControlName="studentName"
+        class="form-control"
+      />
+      <span *ngIf="enrollForm.get('studentName')?.touched && enrollForm.get('studentName')?.errors?.['required']" class="error-msg">
+        Name is required.
+      </span>
+      <span *ngIf="enrollForm.get('studentName')?.touched && enrollForm.get('studentName')?.errors?.['minlength']" class="error-msg">
+        Name must be at least 3 characters.
+      </span>
+    </div>
+
+    <!-- Student Email with Async Validator -->
+    <div class="form-group">
+      <label for="studentEmail">Student Email *</label>
+      <input
+        type="email"
+        id="studentEmail"
+        formControlName="studentEmail"
+        class="form-control"
+      />
+      <span *ngIf="enrollForm.get('studentEmail')?.pending" class="pending-msg">
+        Checking email availability...
+      </span>
+      <span *ngIf="enrollForm.get('studentEmail')?.touched && enrollForm.get('studentEmail')?.errors?.['required']" class="error-msg">
+        Email is required.
+      </span>
+      <span *ngIf="enrollForm.get('studentEmail')?.touched && enrollForm.get('studentEmail')?.errors?.['email']" class="error-msg">
+        Valid email required.
+      </span>
+      <!-- Hands-On 5 Task 2 Step 55: Async validator error message -->
+      <span *ngIf="enrollForm.get('studentEmail')?.errors?.['emailTaken']" class="error-msg">
+        Email taken (emails containing 'test@' are already registered).
+      </span>
+    </div>
+
+    <!-- Course ID with Custom Sync Validator -->
+    <div class="form-group">
+      <label for="courseId">Course ID *</label>
+      <input
+        type="text"
+        id="courseId"
+        formControlName="courseId"
+        class="form-control"
+      />
+      <span *ngIf="enrollForm.get('courseId')?.touched && enrollForm.get('courseId')?.errors?.['required']" class="error-msg">
+        Course ID is required.
+      </span>
+      <!-- Hands-On 5 Task 2 Step 54: Custom sync validator error message -->
+      <span *ngIf="enrollForm.get('courseId')?.errors?.['noCourseCode']" class="error-msg">
+        Course code starting with XX is not allowed.
+      </span>
+    </div>
+
+    <!-- Preferred Semester -->
+    <div class="form-group">
+      <label for="preferredSemester">Preferred Semester</label>
+      <select id="preferredSemester" formControlName="preferredSemester" class="form-control">
+        <option value="Odd">Odd</option>
+        <option value="Even">Even</option>
+      </select>
+    </div>
+
+    <!-- Terms Checkbox -->
+    <div class="form-group checkbox-group">
+      <label>
+        <input type="checkbox" formControlName="agreeToTerms" />
+        Agree to enrollment terms *
+      </label>
+      <span *ngIf="enrollForm.get('agreeToTerms')?.touched && enrollForm.get('agreeToTerms')?.errors?.['required']" class="error-msg">
+        Must agree to terms.
+      </span>
+    </div>
+
+    <!-- Hands-On 5 Task 2 Step 56: Dynamic FormArray controls for additional courses -->
+    <div class="form-array-section">
+      <h3>Additional Courses</h3>
+      <div formArrayName="additionalCourses">
+        <div *ngFor="let ctrl of additionalCourses.controls; let i = index" class="array-item">
+          <input [formControlName]="i" placeholder="Additional Course Code" class="form-control inline-input" />
+          <button type="button" class="btn-danger" (click)="removeCourse(i)">Remove</button>
+        </div>
+      </div>
+      <button type="button" class="btn-secondary" (click)="addCourse()">+ Add Another Course</button>
+    </div>
+
+    <!-- Hands-On 5 Task 1 Step 52: Explanation comment -->
+    <!--
+      Difference between enrollForm.value and enrollForm.getRawValue():
+      - enrollForm.value: Returns an object containing values of only ENABLED controls, omitting disabled form controls.
+      - enrollForm.getRawValue(): Returns an object containing values of ALL controls regardless of disabled status.
+    -->
+
+    <div class="button-group">
+      <!-- Hands-On 5 Task 1 Step 51: Disabled button when form is invalid -->
+      <button type="submit" class="btn-primary" [disabled]="enrollForm.invalid">
+        Submit Reactive Form
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+<div class="course-detail-container">
+  <a routerLink="/courses" class="back-link">&larr; Back to Courses</a>
+
+  <div *ngIf="course$ | async as course; else notFound" class="detail-card">
+    <h2>{{ course.name }} ({{ course.code }})</h2>
+    <hr>
+    <p><strong>Course ID:</strong> {{ course.id }}</p>
+    <p><strong>Credits:</strong> {{ course.credits | creditLabel }}</p>
+    <p><strong>Grade Status:</strong> <span class="badge" [class]="'badge-' + course.gradeStatus">{{ course.gradeStatus | titlecase }}</span></p>
+    <p><strong>Department:</strong> Computer Science & Engineering</p>
+    <p><strong>Description:</strong> Full semester core course covering theoretical foundation, practical labs, and evaluation exams.</p>
+  </div>
+
+  <ng-template #notFound>
+    <div class="not-found-box">
+      <p>Course with ID {{ courseId }} was not found.</p>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,67 @@
+.home-container {
+  padding: 1rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #475569;
+  margin-bottom: 2rem;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  text-align: center;
+  border-top: 4px solid #2563eb;
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  margin: 0;
+  color: #1e293b;
+}
+
+.stat-card p {
+  margin: 0.5rem 0 0;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.interactive-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.binding-item {
+  margin-bottom: 1rem;
+}
+
+.input-field {
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  width: 250px;
+  margin-left: 10px;
+}
+
+.message-badge {
+  margin-left: 15px;
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.live-search {
+  margin-top: 5px;
+  color: #3b82f6;
+}
