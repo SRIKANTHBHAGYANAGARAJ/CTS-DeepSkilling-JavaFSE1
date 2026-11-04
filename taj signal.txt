@@ -1,0 +1,16 @@
+Dear Team,
+
+This is to bring to your attention an issue reported at  Vivanta Vadodara , where one of the set-top box is displaying the following error messages:
+
+"Your box is not receiving the signal due to weather" with an option to switch to Ethernet/WiFi.
+"Bad weather – not able to receive the signal"
+As a result, the channels are not functioning properly, and only a few channels categories are working in this stb box.
+CDSN Number: 4669261204
+
+A screenshot is attached for your reference.
+
+Please treat this as a priority. Kindly share an update on the resolution at the earliest.
+
+For further updates, we have also looped in the Vivanta Vadodara team, so please coordinate with them as well.
+
+Issue Reported at Vivanta Vadodara – STB Signal issue.
